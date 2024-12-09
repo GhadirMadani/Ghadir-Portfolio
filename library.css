@@ -1,0 +1,329 @@
+@font-face {
+  font-family: "pixelify_sans";
+  src: url("font/PixelifySans-VariableFont_wght.ttf");
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "pixelify_sans";
+}
+
+.library {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.library-background {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.library-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  padding: 0 3%; /* Add padding to prevent buttons from sticking to the edge */
+}
+
+.left-button,
+.right-button {
+  width: 5vw;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.left-button {
+  position: fixed;
+  left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.right-button {
+  position: fixed;
+  right: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.left-button:hover,
+.right-button:hover {
+  opacity: 0.8;
+}
+
+/* Character Styling */
+.character {
+  position: absolute;
+  bottom: 3%;
+  left: 10%;
+  z-index: 5;
+}
+
+.character1 {
+  width: 10vw;
+  height: auto;
+}
+
+/* Table Styling */
+.elements {
+  position: absolute;
+  bottom: -10%; /* Adjust the distance from the bottom of the viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.table {
+  width: 40vw;
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Table Sign Styling */
+.table-sign {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  text-align: center;
+}
+
+.table-sign img {
+  width: 20vw;
+  height: auto;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.sign-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2vw;
+  color: black;
+  display: none;
+  z-index: 20;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.book {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center alignment */
+  width: 60vw; /* Responsive width */
+  max-width: 100%; /* Prevent overflow on small screens */
+  height: auto;
+  z-index: 20;
+  padding: 2%; /* Consistent padding */
+  border-radius: 8px;
+  display: flex; /* Flexbox for centering child elements */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  flex-direction: column; /* Stack child elements vertically */
+}
+
+.book img {
+  width: 100%; /* Full width for images */
+  height: auto;
+  max-width: 70vw; /* Restrict max width to prevent overflow */
+  display: none; /* Initially hide images */
+}
+
+/* Center Page Image */
+.Page-1,
+.Page-2,
+.Page-3 {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  display: none; /* Hide all pages initially */
+}
+
+.Page-1.active,
+.Page-2.active,
+.Page-3.active {
+  display: block; /* Show active page */
+}
+
+/* Images on Each Page */
+.image-1,
+.image-2,
+.image-3,
+.image-4,
+.image-5 {
+  position: absolute;
+  top: 20%; /* Positioned above the center page */
+  width: 250px !important; /* Force smaller width */
+  height: auto !important; /* Maintain aspect ratio */
+  cursor: pointer;
+  z-index: 2; /* Ensure these are above pages */
+  display: none; /* Hide all images initially */
+  transition: transform 0.3s ease;
+}
+
+.image-1,
+.image-3,
+.image-5 {
+  left: 15%; /* Left position for specific images */
+}
+
+.image-2,
+.image-4 {
+  right: 15%; /* Right position for specific images */
+}
+
+.image-1:hover,
+.image-2:hover,
+.image-3:hover,
+.image-4:hover,
+.image-5:hover {
+  transform: scale(1.1); /* Add zoom effect on hover */
+}
+
+.Previous,
+.Next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.6); /* Scale the arrow to make it smaller */
+  cursor: pointer;
+  z-index: 30;
+  width: 100px !important; /* Force smaller width */
+  height: auto !important; /* Maintain aspect ratio */
+}
+
+.Previous {
+  left: 5%;
+}
+
+.Next {
+  right: 5%;
+}
+/* Navbar Styling */
+.navigation {
+  position: fixed;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.nav-bar {
+  position: relative;
+  top: 0;
+  margin-top: -15vw;
+  width: 50%;
+  height: auto;
+}
+
+/* Icons Styling */
+.icons {
+  position: absolute;
+  top: 5%;
+  left: 35%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2vw;
+  z-index: 2;
+}
+
+.icons img {
+  width: 3vw;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Marker Styling */
+.marker {
+  position: absolute;
+  top: -90%;
+  left: 35%;
+  transform: translateX(-50%);
+  width: 50vw;
+  height: auto;
+  z-index: 1;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .character1 {
+    width: 15vw;
+  }
+
+  .table {
+    width: 60vw;
+  }
+
+  .sign-text {
+    font-size: 2.5vw;
+  }
+
+  .image-1,
+  .image-2,
+  .image-3,
+  .image-4,
+  .image-5 {
+    width: 100px;
+  }
+
+  .left-button,
+  .right-button {
+    width: 10vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-1,
+  .image-2,
+  .image-3,
+  .image-4,
+  .image-5 {
+    width: 50px; /* Even smaller size for mobile screens */
+    top: 25%; /* Adjust positioning */
+  }
+
+  .image-1,
+  .image-3,
+  .image-5 {
+    left: 3%; /* Adjust left alignment */
+  }
+
+  .image-2,
+  .image-4 {
+    right: 3%; /* Adjust right alignment */
+  }
+}

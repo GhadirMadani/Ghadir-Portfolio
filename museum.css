@@ -1,0 +1,280 @@
+@font-face {
+  font-family: "pixelify_sans";
+  src: url("font/PixelifySans-VariableFont_wght.ttf");
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: "pixelify_sans";
+}
+
+.museum {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.museum-background {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.museum-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Make sure it stays behind any potential content */
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 10; /* Ensure buttons stay above the background */
+  padding: 0 20px; /* Add padding to prevent buttons from sticking to the edge */
+}
+
+.left-button,
+.right-button {
+  width: 50px; /* Set the button size */
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+}
+
+.left-button {
+  position: fixed;
+  left: 20px; /* Position it on the left side */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.right-button {
+  position: fixed;
+  right: 60px; /* Position it on the right side */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.left-button:hover,
+.right-button:hover {
+  opacity: 0.8;
+}
+
+/* Character Styling */
+.character {
+  position: absolute;
+  bottom: 25px;
+  left: 10%;
+  z-index: 16; /* Set a higher z-index to place the character above the painting */
+  max-width: calc(100% - 20px);
+}
+
+.character1 {
+  width: 150px;
+  height: auto;
+}
+
+/* Painting Styling */
+.painting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the painting */
+  z-index: 15; /* Keep the z-index lower than the character */
+  text-align: center; /* Align text and images */
+}
+
+.painting-image {
+  width: 300px; /* Adjust size of the painting */
+  height: auto;
+  cursor: pointer; /* Show pointer to indicate it's clickable */
+  transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.painting-image:hover {
+  transform: scale(1.1); /* Zoom in slightly on hover */
+}
+/* Info Styling */
+.painting-info,
+.architecture-info {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the element */
+  width: 800px; /* Set a smaller, fixed width */
+  max-width: 100%; /* Ensure it doesn't exceed 80% of the screen width */
+  height: auto;
+  z-index: 20; /* Ensure it appears above other elements */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center align the content */
+}
+
+/* Ensure the images inside the info panels are appropriately sized */
+.painting-info img,
+.architecture-info img {
+  max-width: 100%; /* Ensure the image fits within the container */
+  max-height: auto; /* Limit the height to prevent it from being too tall */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: Add slight rounding to the images */
+}
+
+/* Painting Sign Styling */
+.painting-sign {
+  position: absolute;
+  top: 27%; /* Adjust the vertical position of the sign */
+  left: 50%;
+  transform: translate(
+    -50%,
+    -100%
+  ); /* Center the sign horizontally and place it above the painting */
+  text-align: center;
+  z-index: 16; /* Ensure it appears above the painting */
+}
+
+.sign {
+  width: 210px; /* Adjust the size of the sign */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the sign */
+}
+
+.text-sign {
+  position: absolute;
+  top: 30%; /* Adjust the vertical position of the text relative to the sign */
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the text horizontally and vertically within the sign */
+  color: black; /* Adjust text color */
+  font-size: 18px; /* Adjust text size */
+  text-align: center; /* Center the text */
+  z-index: 17; /* Ensure it appears above the sign */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for visibility */
+}
+
+/* Architecture Model Styling */
+.architecture {
+  position: absolute;
+  top: 55%; /* Center vertically relative to the viewport */
+  left: 20%; /* Position it to the left of the painting */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the architecture model within its position */
+  z-index: 15; /* Set z-index to ensure proper stacking order */
+}
+
+.architecture-model {
+  width: 300px; /* Adjust size of the architecture model */
+  height: auto;
+  cursor: pointer; /* Indicate it's clickable */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.architecture-model:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Architecture Sign Styling */
+.architecture-sign {
+  position: absolute;
+  top: 14%; /* Position above the architecture model */
+  left: 20%; /* Align with the architecture model */
+  transform: translateX(
+    -50%
+  ); /* Center horizontally relative to its position */
+  text-align: center; /* Center text and image within the sign */
+  z-index: 16; /* Ensure it appears above the architecture model */
+}
+
+.architecture-sign .sign {
+  width: 210px; /* Adjust the size of the sign */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the sign */
+}
+
+.architecture-sign .text-sign {
+  position: absolute;
+  top: 30px; /* Adjust position to place text on top of the sign */
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the text horizontally and vertically within the sign */
+  color: black; /* Text color */
+  font-size: 18px; /* Adjust text size */
+  text-align: center; /* Center the text */
+  z-index: 17; /* Ensure it appears above the sign */
+}
+
+/* Navbar Styling */
+.navigation {
+  position: fixed; /* Fixed at the top */
+  top: 0; /* Stick to the top */
+  left: 0;
+  width: 100%; /* Full-width navbar */
+  z-index: 1; /* Lower z-index so it doesn't block other elements */
+  display: flex;
+  justify-content: center; /* Center the navbar */
+  align-items: flex-end; /* Align the navbar content */
+}
+
+.nav-bar {
+  position: relative; /* Keeps it in the normal document flow */
+  top: 0; /* Keep at the top of its relative position */
+  margin-top: -180px; /* Moves it up */
+  width: 50%; /* Set width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Icons Styling */
+.icons {
+  position: absolute; /* Position icons below the navbar */
+  top: 40px; /* Place the icons below the navbar */
+  left: -220px; /* Move the icons to the left */
+  display: flex; /* Flex layout for horizontal alignment */
+  justify-content: center; /* Center the icons */
+  gap: 25px; /* Spacing between icons */
+  width: 100%; /* Ensure icons are centered relative to the navbar */
+  z-index: 2; /* Ensure icons are above other elements */
+}
+
+.icons img {
+  width: 50px; /* Icon size */
+  height: auto;
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+/* Marker Styling */
+.marker {
+  position: absolute;
+  top: -130px; /* Adjust position relative to the navbar */
+  left: 40%;
+  transform: translateX(-50%);
+  width: 650px; /* Marker size */
+  height: auto;
+  z-index: 1; /* Lower z-index to place marker behind icons */
+}

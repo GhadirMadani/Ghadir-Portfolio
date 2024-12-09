@@ -1,0 +1,248 @@
+@font-face {
+  font-family: "pixelify_sans";
+  src: url("font/PixelifySans-VariableFont_wght.ttf");
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: "pixelify_sans";
+}
+
+.landing-page {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Ensures no scrolling if video exceeds bounds */
+}
+
+.background_vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Puts the video behind other elements */
+  visibility: visible; /* Ensure landing page is visible initially */
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the screen */
+  z-index: -1; /* Makes sure it stays behind other elements */
+  filter: blur(3px);
+  opacity: 0.7;
+  visibility: visible;
+}
+
+/* Character Section */
+.character-container {
+  position: absolute;
+  right: 20%; /* Adjust for smaller screens */
+  top: 45%; /* Adjust to fit desired vertical position */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(0);
+  width: 120px;
+  height: auto;
+}
+
+.character-front {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.character-back {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+/* Arrows Section */
+.arrows-container {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  gap: 110px; /* Adjust gap for smaller screens */
+  align-items: center;
+  transform: translateX(0);
+}
+
+.arrows-container img {
+  width: 50px; /* Resize arrows for smaller screens */
+  height: auto;
+  cursor: pointer;
+}
+
+/* Title Section */
+.title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.name-logo {
+  width: 100%; /* Scale logo for smaller screens */
+  max-width: 2500px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* Buttons Section */
+.button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Adjust spacing between buttons */
+}
+
+.button-container {
+  position: relative;
+  width: 250px; /* Adjust width for smaller screens */
+}
+
+.start-btn,
+.instruction-btn {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.start-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px; /* Adjust size of the text */
+}
+
+.instruction-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Adjust size of the text */
+}
+
+/* Instruction Page Styling */
+.instruction-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instruction-content {
+  max-width: 90%;
+  max-height: 90%;
+  height: auto;
+  transform: scale(1.1);
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
+  .character-container {
+    right: 5%;
+    top: 35%;
+    width: 60px;
+  }
+
+  .arrows-container img {
+    width: 40px;
+  }
+
+  .button-container {
+    width: 180px;
+  }
+
+  .start-text,
+  .instruction-text {
+    width: 60px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .character-container {
+    top: 30%;
+    width: 50px;
+  }
+
+  .arrows-container {
+    gap: 30px;
+  }
+
+  .arrows-container img {
+    width: 30px;
+  }
+
+  .title {
+    top: 2%;
+  }
+
+  .button {
+    top: 65%;
+    gap: 10px;
+  }
+
+  .button-container {
+    width: 150px;
+  }
+
+  .start-text,
+  .instruction-text {
+    width: 50px;
+  }
+}
+
+/* For extra small mobile screens */
+@media (max-width: 480px) {
+  .character-container {
+    top: 25%;
+    width: 40px;
+  }
+
+  .arrows-container img {
+    width: 20px;
+  }
+
+  .button {
+    top: 70%;
+  }
+
+  .button-container {
+    width: 120px;
+  }
+
+  .start-text,
+  .instruction-text {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+}
